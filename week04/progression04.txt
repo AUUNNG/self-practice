@@ -1,0 +1,114 @@
+// map         => แปลงค่าทั้ง array
+// filter      => กรองค่าตามเงื่อนไข
+// includes    => ตรวจว่ามีค่าหรือไม่ (case-insensitive ใช้ร่วมกับ toLowerCase)
+// find        => หาค่าแรกที่ตรงเงื่อนไข
+// findIndex   => หาตำแหน่งของค่าแรกที่ตรงเงื่อนไข
+// reduce      => สะสมค่าให้เหลือค่าเดียว
+// push        => เพิ่มค่าท้าย array (mutate)
+// pop         => ลบค่าท้าย array (mutate)
+// shift       => ลบค่าหัว array (mutate)
+// unshift     => เพิ่มค่าหัว array (mutate)
+// splice      => เพิ่ม/ลบ/แทนที่ใน array ตาม index (mutate)
+// slice       => ตัดบางส่วนของ array (ไม่ mutate)
+// fill        => แทนค่าทั้ง array (mutate)
+// ternary     => เขียน if-else แบบย่อ
+
+const students = [
+    { id: 1, name: 'Somchai Jaidee' },
+    { id: 2, name: 'Suda Deejai' },
+    { id: 3, name: 'John Smith' },
+]
+
+const words = ['Mango', 'Apple', 'mangosteen', 'orange']
+
+
+// =============================
+// map + filter
+// =============================
+// ดึง id ของ student ทุกคนออกมา แล้วกรองเฉพาะเลขคู่
+// ใช้ `map` เพื่อแปลงค่าใน array และ `filter` เพื่อคัดเลือกข้อมูล
+console.log(students.map(value => value.id).filter(value => value % 2 === 0)) // [2]
+
+
+// =============================
+// filter + includes
+// =============================
+// หา element ที่มีคำว่า "mango" อยู่ในนั้น
+// ใช้ `filter` เพื่อหาข้อมูลหลายค่า และ `includes` + `toLowerCase` เพื่อค้นหาแบบ case-insensitive
+console.log(words.filter(value => value.toLowerCase().includes('mango'))) // ["Mango", "mangosteen"]
+
+
+// =============================
+// find + ternary operator
+// =============================
+// ตรวจว่ามี apple อยู่ใน array ไหม
+console.log(words.find(value => value.toLowerCase().includes('apple')) 
+    ? 'have a apple' 
+    : 'dont have apple') // "have a apple"
+// ใช้ `find` เพื่อหาข้อมูลแค่ค่าแรกที่ตรง และ ternary operator สำหรับ if-else แบบสั้น
+
+
+// =============================
+// reduce
+// =============================
+// แปลง array ให้เป็น string โดยเปลี่ยน RED -> R
+// `reduce` ใช้สะสมค่า (accumulator) และ return ค่าใหม่ที่ประมวลผลแล้ว
+const product = [1, 'RED', 102]
+const productDetail = product.reduce((detail, prop) => {
+    return prop === 'RED' ? detail.concat('R') : detail.concat(prop)
+}, '')
+console.log(productDetail) // "1R102"
+
+
+// =============================
+// reduce
+// =============================
+const cart = [
+    { productId: 1001, price: 500, quantity: 2 },
+    { productId: 1002, price: 10, quantity: 3 },
+    { productId: 1003, price: 5, quantity: 10 },
+]
+
+let paid = {}
+paid.total = cart
+    .map(value => value.price * value.quantity)  // [1000, 30, 50]
+    .reduce((acc, curr) => acc + curr)           // 1080
+
+console.log(paid) // { total: 1080 }
+// การใช้ `map` + `reduce` เพื่อคำนวณ total sum จาก object array
+
+
+// =============================
+// Array method push/pop/shift/unshift/splice
+// =============================
+// การเพิ่ม/ลบข้อมูลใน cart
+cart.push({ productId: 5555, price: 1, quantity: 4 })
+console.log(cart)
+console.log(cart.pop())   // ลบตัวท้ายออก
+console.log(cart.length)  // ดูความยาว array
+// `push` (เพิ่มท้าย), `pop` (ลบท้าย), `shift` (ลบหัว), `unshift` (เพิ่มหัว), `splice` (แก้ไข/ลบหลายตำแหน่ง)
+
+
+// =============================
+// splice + findIndex
+// =============================
+const words1 = ['Mango', 'Apple', 'mangosteen', 'orange', "mangoes"]
+
+// ลบ/แทนค่า element ด้วย splice
+words1.splice(2, 1, "banana")   // แทน mangosteen ด้วย banana
+words1.splice(words1.length-3, 2) // ลบ 2 ตัวก่อนคำว่า orange
+
+// ลบ apple โดยใช้ findIndex
+console.log(words1.splice(words1.findIndex(value => value.toLowerCase() === 'apple'), 1))
+// `splice` สามารถใช้เพิ่ม/ลบ/แทนค่าได้ และ `findIndex` ช่วยหาตำแหน่ง element
+
+
+// =============================
+// slice + fill
+// =============================
+// slice = ดึงบางส่วนของ array
+console.log(words1.slice(2, 5)) // ["mangosteen", "orange", "mangoes"]
+console.log(words1.slice(0, 3)) // ["Mango", "Apple", "mangosteen"]
+
+// fill = เติมค่าใหม่ลงไปแทนที่ทุกตำแหน่ง
+console.log(words1.fill(null)) // [null, null, null, null, null]
