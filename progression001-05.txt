@@ -1,0 +1,55 @@
+week01:
+เข้าใจการทำงานของ reduce และการค้นคว้าด้วยตนเองช่วยเพิ่มความเข้าใจในแนวคิด functional programming
+
+week02:
+ศึกษาการเปรียบเทียบ object สองตัวที่มีข้อมูลเหมือนกันแต่จัดเก็บใน memory ต่างกัน ทำให้ผลการเปรียบเทียบด้วย === ไม่เท่ากันเรียนรู้การใช้ shallow equality เพื่อตรวจสอบความเหมือนของข้อมูลโดยไม่สนใจตำแหน่งใน memoryเข้าใจการจัดการ object ใน memory และวิธีการเปรียบเทียบข้อมูลแบบ shallow
+
+week03:
+การสร้างฟังก์ชั่นทั้งสองแบบ Function Declaration, Function Expression
+เรียนรู้การใช้ arguments object เพื่อเก็บข้อมูลที่ส่งเข้าไปในฟังก์ชันโดยไม่ต้องกำหนดพารามิเตอร์
+การใช้ default parameter เพื่อกำหนดค่าเริ่มต้นให้พารามิเตอร์
+เข้าใจการเขียนฟังก์ชันในรูปแบบต่างๆ และการจัดการพารามิเตอร์
+
+week04:
+map: แปลงทุกค่าใน array
+filter: กรองข้อมูลตามเงื่อนไข
+includes: ตรวจสอบการมีอยู่ของข้อมูล (ใช้ร่วมกับ toLowerCase เพื่อ case-insensitive)
+find: ค้นหาค่าแรกที่ตรงเงื่อนไข
+findIndex: ค้นหาตำแหน่งของค่าแรกที่ตรงเงื่อนไข
+reduce: สะสมค่าให้เหลือผลลัพธ์เดียว
+push/pop/shift/unshift: เพิ่ม/ลบข้อมูลที่หัวหรือท้าย array (mutate)
+splice: เพิ่ม/ลบ/แทนที่ข้อมูลใน array ตาม index (mutate)
+slice: ตัดบางส่วนของ array (ไม่ mutate)
+fill: แทนที่ทุกค่าใน array (mutate)
+
+map + filter: ดึง id ของนักเรียนและกรองเฉพาะเลขคู่
+filter + includes: ค้นหาคำที่มี "mango" แบบ case-insensitive
+find + ternary: ตรวจสอบการมีอยู่ของ "apple" ใน array
+reduce: แปลง array เป็น string (เช่น เปลี่ยน "RED" เป็น "R")
+map + reduce: คำนวณผลรวมราคาจากตะกร้าสินค้า
+push/pop/shift/unshift/splice: จัดการข้อมูลใน array
+splice + findIndex: ลบ/แทนที่ข้อมูลตามตำแหน่ง
+slice + fill: ตัดหรือแทนที่ข้อมูลใน array
+
+เข้าใจการใช้ Array Methods เพื่อจัดการข้อมูลใน array
+สามารถใช้ ternary operator เพื่อลดความซับซ้อนของเงื่อนไขในโค้ด
+
+week05:
+ยังอยู่กับการหัดใช้ functional
+filter + map: กรองนักเรียนที่สอบผ่าน (คะแนน >= 70) และแปลงชื่อเป็นตัวพิมพ์ใหญ่ ผลลัพธ์: ["ALICE", "BOB", "EVE"]
+Array.isArray: ตรวจสอบว่าเป็น array หรือไม่
+concat + toString:
+concat: รวม array เช่น [1, 2, 3] + [4, 5] = [1, 2, 3, 4, 5]
+toString: แปลง array เป็น string เช่น [1, 2, 3] เป็น "1,2,3"
+
+sort:
+String: เรียงตาม Unicode เช่น ['March', 'jan', 'feb', 'Dec'] ได้ ['Dec', 'March', 'feb', 'jan']
+Number: เรียงแบบ string เช่น [1, 30, 4, 21, 100000] ได้ [1, 100000, 21, 30, 4]
+Object: ใช้ callback เช่น a.id - b.id เพื่อเรียงตาม id
+localeCompare: เรียงชื่อโดยไม่สนใจตัวเล็ก-ใหญ่
+
+Module Export/Import:
+ฝึก export/import Class (เช่น Book), Function (เช่น echo, getLength), และ Constant (เช่น TAX เป็น VAT)
+ปรับชื่อตอน import เช่น echo เป็น repeat, getLength เป็น strLength
+
+สามารถใช้ module เพื่อจัดระเบียบโค้ดและเพิ่มความยืดหยุ่นในการใช้งาน
