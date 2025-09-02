@@ -1,0 +1,20 @@
+filter() กับ map()
+ลองใช้ filter() กรองนักเรียนที่สอบผ่าน (คะแนน >= 70) แล้วต่อด้วย map() แปลงชื่อเป็นตัวพิมพ์ใหญ่ ได้ผลลัพธ์ ["ALICE", "BOB", "EVE"]
+
+เช็ค Array ด้วย Array.isArray()
+
+รวมและแปลงด้วย concat() กับ toString()
+concat() เอาไว้รวม Array เช่น [1, 2, 3] กับ [4, 5] ได้ [1, 2, 3, 4, 5]
+
+toString() แปลง Array เป็น String เช่น [1, 2, 3] เป็น "1,2,3"
+
+เรียงลำดับด้วย sort()
+String: ลองเรียง ['March', 'jan', 'feb', 'Dec'] ได้ ['Dec', 'March', 'feb', 'jan'] เพราะมันเรียงตาม Unicode
+
+Number: ลอง [1, 30, 4, 21, 100000] ได้ [1, 100000, 21, 30, 4] เรียงแบบ String
+
+Object: ใช้ Callback a.id - b.id เรียงตาม id
+localeCompare() ช่วยเรียงชื่อแบบไม่สนตัวเล็ก-ใหญ่
+
+ลอง Module Export/Import
+ลอง Export Class (Book), Function (echo, getLength), และ Constant (TAX เป็น VAT) แล้ว Import มาใช้ที่เปลี่ยนชื่อได้ เช่น echo เป็น repeat หรือ getLength เป็น strLength ทำให้โค้ดเป็นระเบียบขึ้น
